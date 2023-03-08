@@ -1,0 +1,263 @@
+#logo {
+    font-weight: bold;
+    margin-top: 20px;
+    margin-left: 40px;
+}
+
+#work-toggle {
+    display: grid;
+	grid-template-columns: 60px 100px;
+}
+
+
+h1 {
+    font-family: sans-serif;
+    font-weight: bold;
+    color: #d55b3e;
+    font-size: 40px;
+    text-align: left;
+    margin: auto;
+}
+
+h3 {
+    font-family: sans-serif;
+    font-size: 14px;
+    margin: auto;
+}
+
+.heading-box {
+    background-color: #FCCE8E;
+    border-radius: 16px;
+    padding: 0.15em 16px;
+    height: 25px;
+    width: 200px;
+}
+
+#header0 {
+    color: #d55b3e;
+    font-size: 10px;
+    display: inline-block;
+    margin: -2px;
+}
+
+#header1 {
+    color: #FCCE8E;
+    font-size: 30px;
+    display: inline-block;
+    margin: -2px;
+}
+
+#header2 {
+    color: #FCCE8E;
+    font-size: 30px;
+    display: none;
+    margin: -2px;
+}
+
+#header3 {
+    color: #8ed5c5;
+    font-size: 30px;
+    display: inline-block;
+    margin-left: -2px;
+}
+
+#header1:hover + #header2 {
+    display: inline-block;
+    margin-right: 10px;
+    animation: fadeIn 1s;
+}
+
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+#video {
+    margin: auto;
+    padding: 20px;
+    text-align: left;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 300px 300px;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 10px 80%;
+    margin-left: 30px;
+}
+
+hr {
+	height: 1px;
+	background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+body {
+    background-color: #fcf4d9;
+    color: #111111;
+}
+
+.gif {
+    margin-top: -60px;
+    margin-bottom: -80px;
+    margin-left: 140px;
+    overflow:hidden;
+}
+
+h6 {
+    font-size: 12px;
+}
+
+.table {
+    width: 70%;
+    font-size: 10px;
+    text-align: left;
+}
+
+.container {
+    display: grid;
+    position: relative;
+    margin-left:10%;
+    grid-template-columns: 50% 50%;
+    margin-bottom: 250px;
+  }
+
+@media (max-width: 900px) {
+	.container {
+		grid-template-columns: 100%;
+	}
+}
+
+.th {
+    height: 25px;
+    font-size: 20px;
+}
+
+.th-prices {
+    height: 25px;
+    font-size: 20px;
+    width: 200px;
+    text-align: left;
+}
+
+
+.td {
+    height: 25px;
+    text-align: left;
+}
+
+.comment {
+    text-align: right;
+    font-weight: bold;
+}
+
+h1, h3 {
+    font-weight: 100;
+    margin-left: 30px;
+}
+
+
+.bar-red {
+    background-color: #d55b3e;
+    color: #fcf4d9;
+    content:"";
+    display:table;
+    clear:both;
+    border-radius: 16px;
+    padding: 0.15em 16px;
+    margin-left: 4px;
+    height:20px;
+}
+
+.bar-yellow {
+    background-color: #FCCE8E;
+    content:"";
+    display:table;
+    clear:both;
+    border-radius: 16px;
+    padding: 0.15em 16px;
+    margin-left: 4px;
+    height:20px;
+}
+
+.bar-green {
+    background-color: #8ed5c5;
+    content:"";
+    display:table;
+    clear:both;
+    border-radius: 16px;
+    padding: 0.15em 16px;
+    margin-left: 4px;
+    height:20px;
+}
+
+.bar-red:hover {
+    font-weight: bold;
+    margin-left: 8px;
+}
+
+.bar-yellow:hover {
+    font-weight: bold;
+    margin-left: 8px;
+}
+
+.bar-green:hover {
+    font-weight: bold;
+    margin-left: 8px;
+}
+
+.footer {
+    position: absolute;
+    bottom: -100px;
+    left: 20px;
+}
+
+
+/* toggle button from: https://dev.to/dcodeyt/creating-a-css-only-toggle-switch-5cg3 */
+
+.toggle {
+    --width: 40px;
+    --height: calc(var(--width) / 2);
+    --border-radius: calc(var(--height) / 2);
+
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 40px;
+}
+
+.toggle__input {
+    display: none;
+}
+
+.toggle__fill {
+    position: relative;
+    width: var(--width);
+    height: var(--height);
+    border-radius: var(--border-radius);
+    background: #dddddd;
+    transition: background 0.2s;
+}
+
+.toggle__fill::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: var(--height);
+    width: var(--height);
+    background: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    border-radius: var(--border-radius);
+    transition: transform 0.2s;
+}
+
+.toggle__input:checked ~ .toggle__fill {
+    background: #8ed5c5;
+}
+
+.toggle__input:checked ~ .toggle__fill::after {
+    transform: translateX(var(--height));
+}

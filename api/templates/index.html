@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Varme</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="/static/styles.css">
+        <link href="/static/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    </head>
+<body>
+
+<a href="/about" style="text-decoration:none">
+    <div id="logo">
+        <div id="header0">about</div>
+        <div id="header1">Var</div>
+        <div id="header2">iable heating for</div>
+        <div id="header3">me</div>
+    </div>
+</a>
+
+<hr></hr>
+
+    <div id="work-toggle">
+        <form id="form" method="get" action="/work">
+            <label class="toggle" for="myToggle">
+                <input onChange="this.form.submit()" class="toggle__input" name="work" type="checkbox" id="myToggle">
+                <div class="toggle__fill"></div>
+            </label>
+        </form>
+        <div>
+            <h3>At Work</h3>
+        </div>
+    </div>
+
+
+<div class="container">
+    <div style="float: left; margin-right: 40px;">
+        <table>
+            <thead>
+                <tr>
+                <th class="th"></th>
+                <th class="th"></th>
+                <th class="th-prices">Today</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in range(24) %}
+                <tr class="table">
+                    <td class="comment">
+                        {% if i == cheapest_today %} 🚰 {% endif %}
+                        {% if settings_today[i] == "ECO" %} 🌱
+                        {% elif settings_today[i] == "NORM" %} 🌀
+                        {% elif settings_today[i] == "COMF" %} 👑
+                        {% endif %}
+
+                    </td>
+                    <td class="td">
+                        {% if i < 10 %}
+                            0{{ i }}
+                        {% else %}
+                            {{ i }}
+                        {% endif %}
+                    <td>
+                    {% if totals_today[i]|float > 2.0 %}
+                        <div class="bar-red" style="width:{{ totals_today[i] * 60}}%;">{{ totals_today[i] }}kr</div>
+                    {% elif totals_today[i]|float > 1.2 %}
+                        <div class="bar-yellow" style="width:{{ totals_today[i] * 60}}%;">{{ totals_today[i] }}kr</div>
+                    {% else %}
+                        <div class="bar-green" style="width:{{ totals_today[i] * 60}}%;">{{ totals_today[i] }}kr</div>
+                    {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div style="float: left;">
+        <table>
+            <thead>
+                <tr>
+                <th class="th"></th>
+                <th class="th"></th>
+                <th class="th-prices">Tomorrow {% if totals_tomo == 0 %} available after 13</th>
+            {% elif totals_tomo == 1 %}
+                    <tr>Tomorrow's prices delayed</tr>
+            {% else %}
+            </thead>
+
+            <tbody>
+                {% for i in range(24) %}
+                <tr class="table">
+                    <td class="comment">
+                        {% if i == cheapest_tomo %} 🚰 {% endif %}
+                        {% if settings_tomo[i] == "ECO" %} 🌱
+                        {% elif settings_tomo[i] == "NORM" %} 🌀
+                        {% elif settings_tomo[i] == "COMF" %} 👑
+                        {% endif %}
+                    </td>
+                    <td class="td">
+                        {% if i < 10 %}
+                            0{{ i }}
+                        {% else %}
+                            {{ i }}
+                        {% endif %}
+                    </td>
+                    <td class="bars">
+                    {% if totals_tomo[i]|float > 2.0 %}
+                        <div class="bar-red" style="width:{{ totals_tomo[i] * 60}}%;">{{ totals_tomo[i] }}kr</div>
+                    {% elif totals_tomo[i]|float > 1.2 %}
+                        <div class="bar-yellow" style="width:{{ totals_tomo[i] * 60}}%;">{{ totals_tomo[i] }}kr</div>
+                    {% else %}
+                        <div class="bar-green" style="width:{{ totals_tomo[i] * 60}}%;">{{ totals_tomo[i] }}kr</div>
+                    {% endif %}
+                    </td>
+                </tr>
+
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+    </div>
+</div>
+
+
+
+<div class="footer">
+    <h6>🌱 ECO 🌀 NORMAL 👑 COMFORT 🚰 HOT WATER</h6>
+    <a href="https://www.elprisenligenu.dk"><img src="https://ik.imagekit.io/ajdfkwyt/hva-koster-strommen/elpriser-leveret-af-elprisenligenu_LJNbbujZAX.png" alt="Elpriser leveret af Elprisen lige nu.dk" width="200" height="45"></a>
+</div>
+
+</body>
+</html>
+
