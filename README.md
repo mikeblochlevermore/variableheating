@@ -1,7 +1,11 @@
 # Variable Heating
 
-[See the Video](https://youtu.be/aNyE0nEGONs)<br>
-[Try the app](https://variableheating.vercel.app/)
+<img src="https://github.com/mikeblochlevermore/variableheating/blob/main/cover.png?raw=true" max-width="400"/>
+
+## [Watch the Video](https://youtu.be/aNyE0nEGONs)<br>
+[![See the Video](https://github.com/mikeblochlevermore/variableheating/blob/main/youtube.png?raw=true)](https://youtu.be/aNyE0nEGONs)
+
+## [Try the app](https://variableheating.vercel.app/)
 
 ## We spent all our money on a Kronoterm heatpump...
 An electrical device that sources heat from the air and uses it to warm radiators and hot water.
